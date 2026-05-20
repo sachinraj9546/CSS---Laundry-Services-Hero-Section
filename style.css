@@ -1,0 +1,121 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #ffffff;
+  overflow: hidden;
+}
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  gap: 15px;
+  padding: 18px 0px;
+  box-shadow: 1px 1px 6px 0px #0000003b;
+}
+
+.logo {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 1px 1px 6px 0px #0000003b;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+}
+
+ul {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+li {
+  list-style-type: none;
+}
+
+li > a {
+  font-family: "Roboto", sans-serif;
+  font-weight: 600;
+  text-decoration: none;
+  color: #2f2f2f;
+  cursor: pointer;
+}
+
+li:hover {
+  text-decoration: underline;
+  transform: scale(1.2);
+  transition: all 200ms;
+}
+
+.username {
+  display: flex;
+  justify-content: center;
+}
+
+.username button {
+  font-size: 15px;
+  background-color: #baf0fa;
+  border-radius: 10px;
+  padding: 10px;
+  border: none;
+  box-shadow: 1px 1px 6px 0px #0000003b;
+}
+
+.username a {
+  text-decoration: none;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* margin: 20px 0px; */
+}
+
+.leftDiv {
+  font-family: "Lato", sans-serif;
+  padding: 50px 80px;
+  margin: 20px 0px;
+}
+
+.leftDiv p:nth-child(1) {
+  font-size: 60px;
+  font-weight: 700;
+  color: #1f1f1fa2;
+  line-height: 90px;
+}
+
+.leftDiv p:nth-child(2) {
+  line-height: 30px;
+  color: #1f1f1fa2;
+}
+
+.leftDiv p span {
+  color: #2eb5fd;
+}
+
+.rightDiv img {
+  width: 50vw;
+  height: 100vh;
+  object-fit: contain;
+}
+
+.leftDiv button {
+  font-size: 15px;
+  color: white;
+  background-color: #2eb5fd;
+  border-radius: 10px;
+  margin-top: 10px;
+  padding: 20px;
+  border: none;
+  box-shadow: 1px 1px 4px 0px #00000069;
+}
