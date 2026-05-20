@@ -1,22 +1,22 @@
 # Laundry Services Hero Section
 
-A modern and clean Laundry Services Hero Section built using HTML and CSS.
+This project is a simple Laundry Services landing page created using HTML and CSS.
+
+The main goal of this assignment was to practice CSS display properties and create a clean hero section layout without using flexbox in the navbar.
 
 ## Features
 
-- Responsive Navbar
-- Hero Section Layout
-- Modern UI Design
+- Navigation Bar
+- Hero Section
+- Call To Action Button
 - Hover Effects
-- CTA Button
-- Clean Typography
-- Flexbox Layout
+- Google Fonts
+- Inline-Block Navbar Layout
 
-## Tech Stack
+## Technologies Used
 
 - HTML5
 - CSS3
-- Google Fonts
 
 ## Project Structure
 
@@ -24,41 +24,20 @@ A modern and clean Laundry Services Hero Section built using HTML and CSS.
 ├── index.html
 ├── style.css
 └── assets
-    └── laundry-image.png
 ```
 
-## Getting Started
+## How to Run
 
-1. Clone the repository
-
-```bash
-git clone https://github.com/your-username/laundry-services-hero-section.git
-```
-
+1. Download or clone the project
 2. Open the project folder
+3. Run `index.html` in your browser
 
-```bash
-cd laundry-services-hero-section
-```
+## What I Learned
 
-3. Run the project
-
-Open `index.html` in your browser.
-
-## Preview
-
-Add a screenshot of your project here.
-
-```bash
-assets/screenshot.png
-```
-
-## Future Improvements
-
-- Mobile Responsive Design
-- Hamburger Menu
-- Animations
-- Booking Form Integration
+- Difference between block, inline, and inline-block display properties
+- Creating layouts using inline-block
+- Basic page structure using HTML and CSS
+- Styling buttons, navigation bars, and hero sections
 
 ## Author
 
