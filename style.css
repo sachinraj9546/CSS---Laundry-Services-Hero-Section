@@ -158,6 +158,11 @@ main {
   border: none;
   box-shadow: 1px 1px 4px 0px #00000069;
   cursor: pointer;
+  transition:all 600ms ease-in-out;
+}
+
+.leftDiv button:hover {
+  transform: scale(1.2) rotate(-10deg);
 }
 
 @media (max-width: 1250px) {
