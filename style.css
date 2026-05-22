@@ -73,6 +73,7 @@ li > a {
 }
 
 .menu-list {
+  display: none;
   position: absolute;
   right: 0;
   top: 60px;
@@ -80,6 +81,7 @@ li > a {
   padding: 15px 0;
   min-width: 200px;
   height: auto;
+  z-index: 1000;
 }
 
 .menu-list ul {
