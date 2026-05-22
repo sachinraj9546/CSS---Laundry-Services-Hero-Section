@@ -64,6 +64,39 @@ li > a {
   width: 20%;
 }
 
+.hamburger-btn {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.menu-list {
+  position: absolute;
+  right: 0;
+  top: 60px;
+  background-color: #2e2e2e;
+  padding: 15px 0;
+  min-width: 200px;
+  height: auto;
+}
+
+.menu-list ul {
+  flex-direction: column;
+  gap: 10px;
+}
+
+.menu-list li {
+  margin: 0;
+  padding: 10px 20px;
+}
+
+.menu-list li > a {
+  font-size: 14px;
+  color: white;
+}
+
 .username button {
   font-size: 15px;
   background-color: #baf0fa;
@@ -161,6 +194,19 @@ main {
 @media (max-width: 768px) {
   nav {
     padding: 10px 20px;
+    position: relative;
+  }
+
+  .hamburger-btn {
+    display: block;
+  }
+
+  .hamburger-btn:focus ~ .menu-list {
+    display: block;
+  }
+
+  .menu-list {
+    display: none;
   }
 
   .nav {
