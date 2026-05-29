@@ -1,3 +1,4 @@
+/* Reset default styles so we start fresh */
 * {
   margin: 0;
   padding: 0;
@@ -8,14 +9,17 @@ body {
   background-color: #fff;
 }
 
+/* Navigation bar - use flexbox to arrange items in a row */
 nav {
   width: 100%;
   padding: 10px 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: #fff;
 }
 
+/* Logo styling - centered box with shadow for depth */
 .logo {
   display: flex;
   justify-content: center;
@@ -23,15 +27,14 @@ nav {
   width: fit-content;
   padding: 10px;
   border-radius: 10px;
-  background-color: #fff;
-  box-shadow: 1px 1px 6px 0px #0000003b;
+  background-color: #f0f0f0;
+  box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.2);
   cursor: pointer;
-
-  font-family: "Lato", sans-serif;
   font-size: 20px;
-  font-weight: 400;
+  font-weight: 600;
 }
 
+/* Desktop navigation menu - hidden by default on mobile */
 .nav {
   display: flex;
   justify-content: center;
@@ -52,19 +55,19 @@ li a {
   text-decoration: none;
   color: #2f2f2f;
   cursor: pointer;
-
-  font-family: "Roboto", sans-serif;
   font-weight: 600;
+  transition: color 0.3s ease;
 }
 
+li a:hover {
+  color: #0099cc;
+}
+
+/* Username button area - positioned on the right */
 .username {
   display: flex;
   justify-content: flex-end;
   width: 20%;
-}
-
-.username a {
-  text-decoration: none;
 }
 
 .username button {
@@ -72,47 +75,68 @@ li a {
   border: none;
   border-radius: 10px;
   background-color: #baf0fa;
-  box-shadow: 1px 1px 6px 0px #0000003b;
+  box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.2);
   cursor: pointer;
   font-size: 15px;
+  transition: background-color 0.3s ease;
 }
 
-.menu-checkbox {
-  display: none;
+.username button:hover {
+  background-color: #90e7f0;
 }
 
+.username a {
+  text-decoration: none;
+  color: #2f2f2f;
+}
+
+/* Hamburger button - only shows on mobile */
 .hamburger-btn {
   display: none;
   margin-left: auto;
   padding: 5px 10px;
-
   background: none;
   border: none;
   color: #2f2f2f;
   font-size: 28px;
   cursor: pointer;
+  transition: color 0.2s ease;
 }
 
+.hamburger-btn:hover {
+  color: #0099cc;
+}
+
+/* Mobile menu styling
+   - Uses transform to slide in from the right instead of display: none/block
+   - Starts off-screen with translateX(100%)
+   - When button has :focus, menu slides in to translateX(0)
+   - The :focus selector works because the menu is a direct sibling of the button
+*/
 .menu-list {
-  display: none;
   position: fixed;
   top: 60px;
   right: 0;
-
   width: 200px;
   height: calc(100vh - 60px);
-
   background-color: #2e2e2e;
   padding: 15px 0;
   z-index: 1000;
-
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+
+  /* Start off-screen to the right */
+  transform: translateX(100%);
+
+  /* Smooth animation when transform property changes */
+  transition: transform 0.3s ease-in-out;
 }
 
+/* When hamburger button has focus, slide the menu in */
 .hamburger-btn:focus + .menu-list {
-  display: block;
+  transform: translateX(0);
 }
 
+/* Style the menu items inside the mobile menu */
 .menu-list ul {
   flex-direction: column;
   gap: 0;
@@ -123,6 +147,11 @@ li a {
   margin: 0;
   padding: 12px 20px;
   border-bottom: 1px solid #444;
+  transition: background-color 0.2s ease;
+}
+
+.menu-list li:hover {
+  background-color: #444;
 }
 
 .menu-list li:last-child {
@@ -134,157 +163,165 @@ li a {
   font-size: 14px;
 }
 
+/* Main content area - use flexbox to position left and right sections */
 main {
   display: flex;
   justify-content: center;
   align-items: center;
   height: calc(100vh - 90px);
+  gap: 40px;
+  padding: 20px;
 }
 
 .leftDiv {
-  padding: 50px 80px;
-  margin: 20px 0;
-
-  font-family: "Lato", sans-serif;
+  padding: 50px 40px;
+  flex: 1;
+  max-width: 500px;
 }
 
+.leftDiv p {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  color: #2f2f2f;
+}
+
+/* First paragraph - the main heading */
 .leftDiv p:nth-child(1) {
-  font-size: 60px;
+  font-size: 48px;
   font-weight: 700;
-  line-height: 90px;
-  color: #1f1f1fa2;
+  line-height: 1.2;
+  color: #1f1f1f;
 }
 
+/* Second paragraph - the description text */
 .leftDiv p:nth-child(2) {
-  line-height: 30px;
-  color: #1f1f1fa2;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #555;
 }
 
 .leftDiv p span {
+  font-weight: 700;
   color: #2eb5fd;
 }
 
 .leftDiv button {
-  margin-top: 10px;
-  padding: 20px;
-
+  margin-top: 15px;
+  padding: 15px 30px;
   border: none;
-  border-radius: 10px;
-
+  border-radius: 5px;
   background-color: #2eb5fd;
   color: white;
-
   font-size: 15px;
   cursor: pointer;
-
-  box-shadow: 1px 1px 4px 0px #00000069;
-  transition: all 0.6s ease-in-out;
+  font-weight: 600;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
 }
 
 .leftDiv button:hover {
-  transform: scale(1.2) rotate(-10deg);
+  background-color: #0099cc;
+}
+
+.rightDiv {
+  flex: 1;
+  max-width: 450px;
 }
 
 .rightDiv img {
-  width: 50vw;
-  height: 80vh;
+  width: 100%;
+  height: auto;
   object-fit: contain;
+  border-radius: 10px;
 }
 
-/* Tablet */
-
+/* Tablet sizing - screens between 768px and 1250px */
 @media (max-width: 1250px) {
   .logo {
-    font-size: 12px;
+    font-size: 14px;
   }
 
   li a {
-    font-size: 12px;
+    font-size: 14px;
   }
 
   .leftDiv {
-    padding: 30px 40px;
+    padding: 30px 20px;
+    max-width: 400px;
   }
 
   .leftDiv p:nth-child(1) {
-    font-size: 40px;
-    line-height: 60px;
+    font-size: 36px;
   }
 
   .leftDiv p:nth-child(2) {
     font-size: 14px;
   }
 
-  .rightDiv img {
-    width: 50vw;
-    height: 60vh;
-  }
-
   main {
-    flex-direction: column;
-    height: 100vh;
+    gap: 20px;
   }
 }
 
-/* Mobile */
-
+/* Mobile sizing - screens smaller than 768px */
 @media (max-width: 768px) {
   nav {
     padding: 10px 20px;
-    position: relative;
   }
 
   .logo {
     font-size: 14px;
   }
 
+  /* Hide desktop navigation on mobile */
   .nav {
     display: none;
   }
 
+  /* Show hamburger button on mobile */
   .hamburger-btn {
     display: block;
   }
 
+  /* Hide username section on mobile */
   .username {
-    width: auto;
+    display: none;
   }
 
-  .username button {
-    padding: 8px;
-    font-size: 12px;
-  }
-
+  /* Stack content vertically on mobile */
   main {
     flex-direction: column;
     height: auto;
-    padding: 20px;
+    gap: 20px;
   }
 
   .leftDiv {
-    padding: 20px;
-    margin: 0;
+    padding: 20px 0;
+    max-width: 100%;
     text-align: center;
   }
 
   .leftDiv p:nth-child(1) {
-    font-size: 38px;
-    line-height: 60px;
+    font-size: 32px;
+    line-height: 1.3;
   }
 
   .leftDiv p:nth-child(2) {
-    font-size: 15px;
-    line-height: 30px;
+    font-size: 14px;
   }
 
   .leftDiv button {
-    padding: 15px;
-    font-size: 15px;
+    padding: 12px 25px;
+    font-size: 14px;
+  }
+
+  .rightDiv {
+    max-width: 100%;
+    width: 100%;
   }
 
   .rightDiv img {
-    width: 80vw;
-    height: 50vh;
     max-width: 350px;
   }
 }
