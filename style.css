@@ -9,6 +9,10 @@ body {
   background-color: white;
 }
 
+body::-webkit-scrollbar {
+  display: none;
+}
+
 nav {
   display: flex;
   justify-content: space-between;
@@ -174,7 +178,7 @@ main {
 
 .rightDiv img {
   width: 100%;
-  height: auto;
+  /* height: auto; */
   animation: orbitAnimation 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
 } 
 
