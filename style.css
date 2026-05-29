@@ -7,6 +7,8 @@
 
 body {
   background-color: #fff;
+  overflow: hidden;
+  height: 100vh;
 }
 
 /* Navigation bar - use flexbox to arrange items in a row */
@@ -17,6 +19,7 @@ nav {
   justify-content: space-between;
   align-items: center;
   background-color: #fff;
+  position: relative;
 }
 
 /* Logo styling - centered box with shadow for depth */
@@ -90,7 +93,21 @@ li a:hover {
   color: #2f2f2f;
 }
 
-/* Hamburger button - only shows on mobile */
+/* Hidden checkbox - the checkbox hack pattern
+   The "checkbox hack" uses a hidden checkbox to maintain menu state.
+   When the checkbox is checked, the menu shows. When unchecked, it hides.
+   The user never sees this checkbox - they interact with it through the label.
+   This keeps the menu open even when you click on menu items!
+*/
+.menu-toggle {
+  display: none;
+}
+
+/* Hamburger button (styled as a label) - only shows on mobile
+   This label is connected to the checkbox via the "for" attribute.
+   When clicked, it toggles the checkbox state, which triggers the :checked selector.
+   We style it to look like a clickable hamburger button icon.
+*/
 .hamburger-btn {
   display: none;
   margin-left: auto;
@@ -101,6 +118,7 @@ li a:hover {
   font-size: 28px;
   cursor: pointer;
   transition: color 0.2s ease;
+  user-select: none;
 }
 
 .hamburger-btn:hover {
@@ -108,39 +126,39 @@ li a:hover {
 }
 
 /* Mobile menu styling
-   - Uses transform to slide in from the right instead of display: none/block
-   - Starts off-screen with translateX(100%)
-   - When button has :focus, menu slides in to translateX(0)
-   - The :focus selector works because the menu is a direct sibling of the button
+   - Uses display: none / display: block as required by assignment
+   - Uses position: absolute (not fixed) to position relative to the navbar
+   - Menu is hidden by default
+   - The :checked selector shows the menu when the checkbox is toggled
+   This is the "checkbox hack" - it solves the problem of the :focus selector
+   losing focus when you click menu items. The menu state persists!
 */
 .menu-list {
-  position: fixed;
-  top: 60px;
+  display: none;
+  position: absolute;
+  top: 100%;
   right: 0;
   width: 200px;
-  height: calc(100vh - 60px);
   background-color: #2e2e2e;
   padding: 15px 0;
   z-index: 1000;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-
-  /* Start off-screen to the right */
-  transform: translateX(100%);
-
-  /* Smooth animation when transform property changes */
-  transition: transform 0.3s ease-in-out;
 }
 
-/* When hamburger button has focus, slide the menu in */
-.hamburger-btn:focus + .menu-list {
-  transform: translateX(0);
+/* The checkbox hack selector
+   When .menu-toggle checkbox is :checked, show the menu
+   The ~ selector targets any .menu-list that comes after the checkbox
+   This keeps the menu visible even when clicking menu items because
+   the checkbox state doesn't change when you click child elements!
+*/
+#menu-toggle:checked ~ .menu-list {
+  display: block;
 }
 
 /* Style the menu items inside the mobile menu */
 .menu-list ul {
   flex-direction: column;
   gap: 0;
-  height: 100%;
 }
 
 .menu-list li {
@@ -279,7 +297,7 @@ main {
     display: none;
   }
 
-  /* Show hamburger button on mobile */
+  /* Show hamburger button (label) on mobile */
   .hamburger-btn {
     display: block;
   }
