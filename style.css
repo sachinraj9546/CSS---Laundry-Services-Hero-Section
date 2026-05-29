@@ -1,12 +1,11 @@
 * {
-  padding: 0;
   margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
 body {
-  background-color: #ffffff;
-  /* overflow: hidden; */
+  background-color: #fff;
 }
 
 nav {
@@ -21,15 +20,16 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 18%;
-  font-family: "Lato", sans-serif;
-  font-weight: 400;
-  font-size: 20px;
-  background-color: #ffffff;
-  border-radius: 10px;
+  width: fit-content;
   padding: 10px;
+  border-radius: 10px;
+  background-color: #fff;
   box-shadow: 1px 1px 6px 0px #0000003b;
   cursor: pointer;
+
+  font-family: "Lato", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
 }
 
 .nav {
@@ -39,23 +39,22 @@ nav {
 }
 
 ul {
-  padding: 0;
   display: flex;
   gap: 15px;
 }
 
 li {
-  display: inline-block;
-  list-style-type: none;
+  list-style: none;
   margin: 10px;
 }
 
-li > a {
-  font-family: "Roboto", sans-serif;
-  font-weight: 600;
+li a {
   text-decoration: none;
   color: #2f2f2f;
   cursor: pointer;
+
+  font-family: "Roboto", sans-serif;
+  font-weight: 600;
 }
 
 .username {
@@ -64,53 +63,75 @@ li > a {
   width: 20%;
 }
 
+.username a {
+  text-decoration: none;
+}
+
+.username button {
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  background-color: #baf0fa;
+  box-shadow: 1px 1px 6px 0px #0000003b;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.menu-checkbox {
+  display: none;
+}
+
 .hamburger-btn {
   display: none;
+  margin-left: auto;
+  padding: 5px 10px;
+
   background: none;
   border: none;
-  font-size: 24px;
+  color: #2f2f2f;
+  font-size: 28px;
   cursor: pointer;
 }
 
 .menu-list {
   display: none;
-  position: absolute;
-  right: 0;
+  position: fixed;
   top: 60px;
+  right: 0;
+
+  width: 200px;
+  height: calc(100vh - 60px);
+
   background-color: #2e2e2e;
   padding: 15px 0;
-  min-width: 200px;
-  height: auto;
   z-index: 1000;
+
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.hamburger-btn:focus + .menu-list {
+  display: block;
 }
 
 .menu-list ul {
   flex-direction: column;
-  gap: 10px;
+  gap: 0;
+  height: 100%;
 }
 
 .menu-list li {
   margin: 0;
-  padding: 10px 20px;
+  padding: 12px 20px;
+  border-bottom: 1px solid #444;
 }
 
-.menu-list li > a {
-  font-size: 14px;
+.menu-list li:last-child {
+  border-bottom: none;
+}
+
+.menu-list li a {
   color: white;
-}
-
-.username button {
-  font-size: 15px;
-  background-color: #baf0fa;
-  border-radius: 10px;
-  padding: 10px;
-  border: none;
-  box-shadow: 1px 1px 6px 0px #0000003b;
-  cursor: pointer;
-}
-
-.username a {
-  text-decoration: none;
+  font-size: 14px;
 }
 
 main {
@@ -121,16 +142,17 @@ main {
 }
 
 .leftDiv {
-  font-family: "Lato", sans-serif;
   padding: 50px 80px;
-  margin: 20px 0px;
+  margin: 20px 0;
+
+  font-family: "Lato", sans-serif;
 }
 
 .leftDiv p:nth-child(1) {
   font-size: 60px;
   font-weight: 700;
-  color: #1f1f1fa2;
   line-height: 90px;
+  color: #1f1f1fa2;
 }
 
 .leftDiv p:nth-child(2) {
@@ -142,36 +164,41 @@ main {
   color: #2eb5fd;
 }
 
-.rightDiv img {
-  width: 50vw;
-  height: 80vh;
-  object-fit: contain;
-}
-
 .leftDiv button {
-  font-size: 15px;
-  color: white;
-  background-color: #2eb5fd;
-  border-radius: 10px;
   margin-top: 10px;
   padding: 20px;
+
   border: none;
-  box-shadow: 1px 1px 4px 0px #00000069;
+  border-radius: 10px;
+
+  background-color: #2eb5fd;
+  color: white;
+
+  font-size: 15px;
   cursor: pointer;
-  transition: all 600ms ease-in-out;
+
+  box-shadow: 1px 1px 4px 0px #00000069;
+  transition: all 0.6s ease-in-out;
 }
 
 .leftDiv button:hover {
   transform: scale(1.2) rotate(-10deg);
 }
 
+.rightDiv img {
+  width: 50vw;
+  height: 80vh;
+  object-fit: contain;
+}
+
+/* Tablet */
+
 @media (max-width: 1250px) {
   .logo {
     font-size: 12px;
-    width: auto;
   }
 
-  li > a {
+  li a {
     font-size: 12px;
   }
 
@@ -199,30 +226,33 @@ main {
   }
 }
 
+/* Mobile */
+
 @media (max-width: 768px) {
   nav {
     padding: 10px 20px;
     position: relative;
   }
 
-  .nav {
-    display: none;
-    font-size: 2px;
+  .logo {
+    font-size: 14px;
   }
 
-  .logo {
-    width: auto;
-    font-size: 14px;
+  .nav {
+    display: none;
+  }
+
+  .hamburger-btn {
+    display: block;
   }
 
   .username {
     width: auto;
-    font-size: 14px;
   }
 
   .username button {
-    font-size: 12px;
     padding: 8px;
+    font-size: 12px;
   }
 
   main {
@@ -233,6 +263,7 @@ main {
 
   .leftDiv {
     padding: 20px;
+    margin: 0;
     text-align: center;
   }
 
@@ -247,12 +278,13 @@ main {
   }
 
   .leftDiv button {
-    font-size: 15px;
     padding: 15px;
+    font-size: 15px;
   }
 
   .rightDiv img {
     width: 80vw;
     height: 50vh;
+    max-width: 350px;
   }
 }
